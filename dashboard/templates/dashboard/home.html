@@ -3,59 +3,59 @@
 {% block content %}
 
 <section class="container text-center">
-  <h3>Welcome</h3>
+  <h3>Chào mừng {{user}}</h3>
 
   <hr> <br>
   <div class="row">
     <div class="col-md-3">
-      <a href="#">
+      <a href="{% url 'notes' %}">
         <div class="card">
           <img class="card-img-top" src="{% static 'images/notes.jpg' %}" alt="Notes image">
           <div class="card-body">
             <h5 class="card-title ">
-              Notes
+              Ghi chú
             </h5>
-            Create Notes to refer them later. They are stored permanently until deleted
+            Tạo bất kỳ ghi chú gì mà bạn cần. Được lưu vĩnh viễn cho đến khi bị xóa
           </div>
         </div>
       </a>
     </div>
 
     <div class="col-md-3">
-      <a href="#">
+      <a href="{% url 'homework' %}">
         <div class="card">
           <img class="card-img-top" src="{% static 'images/homework.jpg' %}" alt="Notes image">
           <div class="card-body">
             <h5 class="card-title ">
-              Homework
+              Bài tập về nhà
             </h5>
-            Add homeworks and assign them deadlines. They will be displayed prioritised by deadlines
+            Thêm bài tập về nhà kèm theo thời hạn, giúp hạn kiểm soát bài tập về nhà, bài tập sẽ hiển thị theo thứ tự hạn chót
           </div>
         </div>
       </a>
     </div>
     <div class="col-md-3">
-      <a href="#">
+      <a href="{% url 'youtube' %}">
         <div class="card">
           <img class="card-img-top" src="{% static 'images/youtube.jpeg' %}" alt="Notes image">
           <div class="card-body">
             <h5 class="card-title ">
               Youtube
             </h5>
-            Search Youtube and select your desired video to play it on youtube
+            Công cụ giúp bạn tìm kiếm nhanh video trên youtube
           </div>
         </div>
       </a>
     </div>
     <div class="col-md-3">
-      <a href="#">
+      <a href="{% url 'todo' %}">
         <div class="card">
           <img class="card-img-top" src="{% static 'images/todo.jpg' %}" alt="Notes image">
           <div class="card-body">
             <h5 class="card-title ">
               To Do
             </h5>
-            Add your to-do lists for your day and remove them as you finish
+            Thêm danh sách việc cần làm trong ngày của bạn và có thể xóa khi cần
           </div>
         </div>
       </a>
@@ -64,14 +64,14 @@
   <br><br><br>
   <div class="row">
     <div class="col-md-3 ">
-      <a href="#">
+      <a href="{% url 'books' %}">
         <div class="card mt-20">
           <img class="card-img-top" src="{% static 'images/books.png' %}" alt="Notes image">
           <div class="card-body">
             <h5 class="card-title ">
-              Books
+              Thư viện sách
             </h5>
-            Browse books from a list of neatly organised book menu
+            Thư viện sách với đa dạng các đầu mục cho bạn khám phá
           </div>
         </div>
       </a>
@@ -80,28 +80,27 @@
 
 
     <div class="col-md-3">
-      <a href="#">
+      <a href="{% url 'dictionary' %}">
         <div class="card">
           <img class="card-img-top" src="{% static 'images/dictionary.jpg' %}" alt="Notes image">
           <div class="card-body">
             <h5 class="card-title ">
-              Dictionary
+              Từ điển
             </h5>
-            A vocabulary from a book is troubling you? No problem, enter the word, and the meaning will be displayed
-            almost instantaneously.
+           Bạn gặp vấn đề về từ vựng, đừng lo, công cụ này sẽ giúp bạn tra từ điển 1 cách nhanh chóng
           </div>
         </div>
       </a>
     </div>
     <div class="col-md-3">
-      <a href="#">
+      <a href="{% url 'wiki' %}">
         <div class="card">
           <img class="card-img-top" src="{% static 'images/wiki.png' %}" alt="Notes image">
           <div class="card-body">
             <h5 class="card-title ">
               WikiPedia
             </h5>
-            Homework and Assignments? Search wikipedia to get fast results
+            Cần thông tin cho bài tập về nhà ?, có lối tắt wiki ngay tại đây 💪
           </div>
         </div>
       </a>
@@ -109,14 +108,14 @@
 
 
     <div class="col-md-3">
-      <a href="#">
+      <a href="{% url 'conversion' %}">
         <div class="card">
           <img class="card-img-top" src="{% static 'images/conversion.png' %}" alt="Notes image">
           <div class="card-body">
             <h5 class="card-title ">
-              Conversion
+              Chuyển đổi đơn vị
             </h5>
-            Check out the conversion table, that helps you to convert measurements to more familiar ones of your choice.
+            Công cụ hữu ích giúp bạn chuyển đổi đơn vị trong tích tắc
           </div>
         </div>
       </a>
