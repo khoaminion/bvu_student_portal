@@ -6,18 +6,18 @@
   <form method="POST">
     {% csrf_token %}
     <fieldset class="form-group">
-      <legend class="border-bottom mb-4">Log In</legend>
+      <legend class="border-bottom mb-4">Đăng nhập</legend>
       {{form|crispy}}
     </fieldset>
     <div class="form-group">
       <button href="" class="btn btn-outline-info" type="submit">
-        Sign In
+        Đăng nhập
       </button>
     </div>
   </form>
   <div class="border-top pt-3">
-    <small class="text-muted">Need an Account?
-      <a class="ml-2" href="{% url 'register' %}">Create an Account</a>
+    <small class="text-muted">Bạn chưa có tài khoản ?
+      <a class="ml-2" href="{% url 'register' %}">Tạo tài khoản</a>
     </small>
   </div>
 </div>

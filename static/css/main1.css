@@ -19,10 +19,12 @@ footer {
 }
 .example::-webkit-scrollbar {
     display: none;
+    position: relative;
 }
 
-
-
+.lol{
+    display: none;
+}
 .card {
     box-shadow: 15px 15px 10px rgb(134, 134, 134);
 
@@ -37,7 +39,7 @@ footer {
 
 a {
     text-decoration: none !important;
-    color: black;
+    color: rgb(102, 117, 128);
 }
 
 a:hover {
@@ -53,14 +55,13 @@ a:hover {
 
 .card-header {
     color: black !important;
-    background: rgb(152, 214, 230) !important;
+    background: rgb(122, 169, 242) !important;
     transition: 0.3s ease-in;
 
 }
 
-.nav-link:hover {
-    background: black !important;
-    color: white !important;
+.nav-link:hover {   
+    color: rgb(0, 0, 0) !important;
     transition: 0.7s ease;
 }
 
@@ -104,12 +105,6 @@ a:hover {
     height: 210px;
 }
 
-/* .card:hover {
-    opacity: 0.9;
-    transform: scale(1.02);
-    transition: 0.5s ease;
-} */
-
 html,
 body {
     max-width: 100%;
@@ -120,7 +115,7 @@ body {
 }
 
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.5));
+    background: rgb(231, 236, 240);
     /*background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%)*/
     overflow-x: hidden;
     background-repeat: no-repeat;

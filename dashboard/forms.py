@@ -27,11 +27,11 @@ class TodoForm(forms.ModelForm):
         fields = ['title','is_finished']
 
 class ConversionForm(forms.Form):
-    _choices = [('length','Length'),('mass','Mass')]
-    measurement = forms.ChoiceField(choices = _choices, widget=forms.RadioSelect)
+    _choices = [('length','Chiều dài'),('mass','Khối lượng'),('speed','Tốc độ')]
+    measurement = forms.ChoiceField(choices = _choices, widget=forms.RadioSelect,label='Đơn vị')
 
 class ConversionLengthForm(forms.Form):
-    _choices = [('yard','Yard'),('foot','Foot')]
+    _choices = [('yard','Yard'),('feet','Feet'),('mile','Dặm')]
     input = forms.CharField(required=False, label=False, widget=forms.TextInput(
         attrs={'type':'number','placeholder':'Nhập vào số cần chyển đổi'}
     ))
@@ -42,8 +42,23 @@ class ConversionLengthForm(forms.Form):
         label='',widget=forms.Select( choices= _choices)
     )
 
+
+class ConversionSpeedForm(forms.Form):
+    _choices = [('kmh','Kilomét trên giờ'),('mph','Dặm trên giờ'),('ms','Mét trên giây')]
+    input = forms.CharField(required=False, label=False, widget=forms.TextInput(
+        attrs={'type':'number','placeholder':'Nhập vào số cần chyển đổi'}
+    ))
+    measure1 = forms.CharField(
+        label='',widget=forms.Select( choices= _choices)
+    )
+    measure2 = forms.CharField(
+        label='',widget=forms.Select( choices= _choices)
+    )
+
+
+
 class ConversionMassForm(forms.Form):
-    _choices = [('pound','Pound'),('kilogram','Kilogram')]
+    _choices = [('pound','Pound'),('kilogram','Kilogram'),('stone','Stone')]
     input = forms.CharField(required=False, label=False, widget=forms.TextInput(
         attrs={'type':'number','placeholder':'Nhập vào số cần chyển đổi'}
     ))

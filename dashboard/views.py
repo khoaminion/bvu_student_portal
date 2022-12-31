@@ -79,9 +79,24 @@ def update_homework(request, pk=None):
     return HttpResponseRedirect('/homework')
 
 @login_required
+def update_homework_profile(request, pk=None):
+    homework = Homework.objects.get(id=pk)
+    if homework.is_finished:
+        homework.is_finished = False
+    else:
+        homework.is_finished = True
+    homework.save()
+    return HttpResponseRedirect('/profile')
+
+@login_required
 def delete_homework(request,pk=None):
     Homework.objects.get(id=pk).delete()
     return HttpResponseRedirect('/homework')
+
+@login_required
+def delete_homework_profile(request,pk=None):
+    Homework.objects.get(id=pk).delete()
+    return HttpResponseRedirect('/profile')
 
 
 def youtube(request):
@@ -163,9 +178,24 @@ def update_todo(request,pk=None):
     return HttpResponseRedirect('/todo')
 
 @login_required
+def update_todo_profile(request,pk=None):
+    todo = Todo.objects.get(id=pk)
+    if todo.is_finished:
+        todo.is_finished = False
+    else:
+        todo.is_finished = True
+    todo.save()
+    return HttpResponseRedirect('/profile')
+
+@login_required
 def delete_todo(request,pk=None):
     Todo.objects.get(id=pk).delete()
     return HttpResponseRedirect('/todo')
+
+@login_required
+def delete_todo_profile(request,pk=None):
+    Todo.objects.get(id=pk).delete()
+    return HttpResponseRedirect('/profile')
 
 def books(request):
     if request.method == 'POST':
@@ -267,16 +297,59 @@ def conversion(request):
                 input = request.POST['input']
                 answer = ''
                 if input and int (input) >=0:
-                    if first == 'yard' and second == 'foot':
-                        answer = f'{input} yard = {int(input)*3} foot'
-                    if first == 'foot' and second == 'yard':
-                        answer = f'{input} foot = {int(input)/3} yard'
+                    if first == 'yard' and second == 'feet':
+                        answer = f'{input} yard = {int(input)*3} feet'
+                    if first == 'yard' and second == 'mile':
+                        answer = f'{input} yard = {int(input)*0.0005681818} mile'
+                    
+                    if first == 'feet' and second == 'yard':
+                        answer = f'{input} feet = {int(input)*0.33333333} yard'
+                    if first == 'feet' and second == 'mile':
+                        answer = f'{input} feet = {int(input)*0.0001893939} mile'
+
+                    if first == 'mile' and second == 'feet':
+                        answer = f'{input} mile = {int(input)*5280} feet'
+                    if first == 'mile' and second == 'yard':
+                        answer = f'{input} mile = {int(input)*1760} yard'
                 context = {
                     'form':form,
                     'm_form':measrurement_form,
                     'input': True,
                     'answer':answer                    
-                }              
+                }    
+        if request.POST['measurement'] == 'speed':
+            measrurement_form = ConversionSpeedForm()
+            context = {
+                'form':form,
+                'm_form': measrurement_form,
+                'input':True
+            }
+            if 'input' in request.POST:
+                first = request.POST['measure1']
+                second = request.POST['measure2']
+                input = request.POST['input']
+                answer = ''
+                if input and int (input) >=0:
+                    if first == 'kmh' and second == 'mph':
+                        answer = f'{input} Km/h = {int(input)*0.621371192} mph'
+                    if first == 'mph' and second == 'kmh':
+                        answer = f'{input} mph = {int(input)*1.609344} Km/h'
+
+                    if first == 'ms' and second == 'mph':
+                        answer = f'{input} m/s = {int(input)*2.2369362921} mph'
+                    if first == 'ms' and second == 'kmh':
+                        answer = f'{input} m/s = {int(input)*3.6} Km/h'
+
+                    if first == 'kmh' and second == 'ms':
+                        answer = f'{input} Km/h = {int(input)*0.2777777778} m/s'
+                    if first == 'mph' and second == 'ms':
+                        answer = f'{input} mph = {int(input)*0.44704} m/s'
+                context = {
+                    'form':form,
+                    'm_form':measrurement_form,
+                    'input': True,
+                    'answer':answer                    
+                }                        
         if request.POST['measurement'] == 'mass':
             measrurement_form = ConversionMassForm()
             context = {
@@ -294,6 +367,16 @@ def conversion(request):
                         answer = f'{input} pound = {int(input)*0.453592} kilogram'
                     if first == 'kilogram' and second == 'pound':
                         answer = f'{input} kilogram = {int(input)*2.20462} pound'
+                    
+                    if first == 'pound' and second == 'stone':
+                        answer = f'{input} pound = {int(input)*0.0714285714} stone'
+                    if first == 'kilogram' and second == 'stone':
+                        answer = f'{input} kilogram = {int(input)*0.1574730444} stone'
+                    
+                    if first == 'stone' and second == 'kilogram':
+                        answer = f'{input} stone = {int(input)*6.35029318} kilogram'
+                    if first == 'stone' and second == 'pound':
+                        answer = f'{input} stone = {int(input)*14} pound'
                 context = {
                     'form':form,
                     'm_form':measrurement_form,
@@ -306,7 +389,6 @@ def conversion(request):
             'form':form,
             'input':False
         }
-    print(context)
     return render(request,'dashboard/conversion.html',context)
 
 def register(request):

@@ -7,64 +7,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Student-dashboard</title>
+  <title>Cổng thông tim sinh viên</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
-  <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/main1.css' %}" />
 </head>
 
 <body>
   <header>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar container navbar-expand-lg ">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/BUV.png' %}" alt="Notes image" style="max-height: 40px !important;"></a>
-        <a class="navbar-brand" href="{% url 'home' %}">BVU Student Portal</a>        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Trang chủ</a>
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+              <a class="nav-link" href="{% url 'profile' %}">Trang cá nhân</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                Options
+                Lối tắt
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{% url 'books' %}">Books</a>
+                <a class="dropdown-item" href="{% url 'books' %}">Thư viện sách</a>
                 <a class="dropdown-item" href="{% url 'wiki' %}">Wikipedia</a>
                 <div class="dropdown-divider"></div>
 
-                <a class="dropdown-item" href="{% url 'dictionary' %}">Dictionary</a>
+                <a class="dropdown-item" href="{% url 'dictionary' %}">Từ điển</a>
                 <a class="dropdown-item" href="{% url 'youtube' %}">Youtube</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{% url 'todo' %}">To-do</a>
-                <a class="dropdown-item" href="{% url 'homework' %}">Homework</a>
+                <a class="dropdown-item" href="{% url 'homework' %}">Bài tập về nhà</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{% url 'notes' %}">Notes</a>
-                <a class="dropdown-item" href="{% url 'conversion' %}">Conversion</a>
+                <a class="dropdown-item" href="{% url 'notes' %}">Ghi chú</a>
+                <a class="dropdown-item" href="{% url 'conversion' %}">Chuyển đổi đơn vị</a>
                 <div class="dropdown-divider"></div>
               </div>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+              <a class="nav-link" href="{% url 'logout' %}">Đăng xuất</a>
             </li>
             {% else %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'register' %}">Register</a>
+              <a class="nav-link" href="{% url 'register' %}">Đăng ký</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}">Login</a>
+              <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
             </li>
             {% endif %}
           </ul>
@@ -159,6 +159,7 @@
   
     <!-- Copyright -->
     <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      BVU Student Portal |
       © 2022 Copyright:
       <a class="text-dark" href="">KHOALND</a>
     </div>

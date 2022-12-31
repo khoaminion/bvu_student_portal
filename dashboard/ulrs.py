@@ -19,6 +19,10 @@ urlpatterns = [
     path('conversion',views.conversion,name='conversion'),
     path('register',views.register,name='register'),
     path('news',views.news,name='news'),
+    path('update_todo_profile/<int:pk>',views.update_todo_profile,name='update-todo-profile'),
+    path('update_homework_profile/<int:pk>',views.update_homework_profile,name='update-homework-profile'),
+    path('delete_todo_profile/<int:pk>',views.delete_todo_profile,name='delete-todo-profile'),
+    path('delete_homework_profile/<int:pk>',views.delete_homework_profile,name='delete-homework-profile'),
 
     
 ]
