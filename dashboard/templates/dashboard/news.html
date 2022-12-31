@@ -1,0 +1,34 @@
+{% extends 'dashboard/base.html' %} 
+{% load static %} 
+{% block content %}
+
+<section class='text-center container'>
+    <h2>Tin tức mới nhất trong ngày</h2>
+    
+    
+
+{% for result in results  %}
+    <a href="{{result.link}}" target="_blank">
+        <div class="card rounded mt-3">
+            <div class="bg-light rounded card">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img class="img-fluid card-img-top rounded" src="{{result.thumbnail}}" alt="">
+
+                    </div>
+                    <div class="col-md-9">
+                        <h3 class="p-0 m-0">{{result.title}}</h3>
+                        
+                        {% if result.desc %}
+                        <h6 class="p-0 m-1">{{result.desc}}</h6>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+{% endfor %}
+    <br>
+</section>
+
+{% endblock content %}

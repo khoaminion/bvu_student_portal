@@ -18,6 +18,7 @@ urlpatterns = [
     path('wiki',views.wiki,name='wiki'),
     path('conversion',views.conversion,name='conversion'),
     path('register',views.register,name='register'),
+    path('news',views.news,name='news'),
 
     
 ]

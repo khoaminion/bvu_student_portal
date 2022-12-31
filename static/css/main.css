@@ -15,8 +15,8 @@ main {
 
 footer {
     font-family: Rubik, sans-serif, serif, 'Times New Roman', Times, serif;
+    
 }
-
 .example::-webkit-scrollbar {
     display: none;
 }
@@ -24,13 +24,13 @@ footer {
 
 
 .card {
-    box-shadow: 15px 15px 10px rgb(78, 77, 77);
+    box-shadow: 15px 15px 10px rgb(134, 134, 134);
 
 }
 
 
 .card-header:hover {
-    background: rgb(11, 22, 83) !important;
+    background: rgb(173, 181, 228) !important;
     color: whitesmoke !important;
     transition: 0.1s ease-in;
 }
@@ -116,6 +116,7 @@ body {
     overflow-x: hidden;
     height: 100%;
     width: 100%;
+    min-height: 100%;
 }
 
 body {
@@ -123,12 +124,13 @@ body {
     /*background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%)*/
     overflow-x: hidden;
     background-repeat: no-repeat;
+    padding-bottom: 50px;
 }
 
 
 
 .card-header {
-    background-color: rgb(133, 204, 231);
+    background-color: rgb(212, 18, 18);
 }
 
 

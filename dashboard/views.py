@@ -344,3 +344,28 @@ def profile(request):
     }
 
     return render (request,'dashboard/profile.html',context)
+
+def news(request):
+        form = DashboardForm(request.POST)
+        query_params = {
+	    "source": "bbc-news",
+	    "sortBy": "top",
+	    "apiKey": "c1c3ae80c7b3423395da423f4f9ddfdd"
+	    }
+        url = 'https://newsapi.org/v1/articles'
+        r = requests.get(url,params=query_params)
+        answer = r.json()
+        result_list = []
+        for i in range(10):
+            result_dict = {
+                'title':answer['articles'][i]['title'],
+                'desc':answer['articles'][i]['description'],
+                'thumbnail':answer['articles'][i]['urlToImage'],
+                'link':answer['articles'][i]['url'],
+            }
+            result_list.append(result_dict)
+            context = {
+                'form':form,
+                'results':result_list
+            }      
+        return render(request,'dashboard/news.html',context)

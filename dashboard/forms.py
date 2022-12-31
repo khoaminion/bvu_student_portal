@@ -19,7 +19,7 @@ class HomeworkForm(forms.ModelForm):
         fields = ['subject','title','desc','due','is_finished']
 
 class DashboardForm(forms.Form):
-    text = forms.CharField(max_length=100,label='Nhập vào từ khóa để tìm kiếm')
+    text = forms.CharField(max_length=100,label='Nhập vào từ khóa')
 
 class TodoForm(forms.ModelForm):
     class Meta:

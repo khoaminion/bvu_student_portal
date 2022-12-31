@@ -3,7 +3,11 @@
 {% block content %}
 
 <section class="container text-center">
+  {% if user.last_name %}
+  <h3>Chào mừng {{user.last_name}}</h3>
+  {% else %}
   <h3>Chào mừng {{user}}</h3>
+  {% endif %}
 
   <hr> <br>
   <div class="row">
@@ -122,6 +126,22 @@
     </div>
   </div>
 
-
+  <br><br><br>
+  <div class="row">
+    <div class="col-md-3 ">
+      <a href="{% url 'news' %}">
+        <div class="card mt-20">
+          <img class="card-img-top" src="{% static 'images/news.png' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Tin tức
+            </h5>
+            Đừng quên cập nhật tin tức mới mỗi ngày tại đây nhé !!
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  
 </section>
 {% endblock content %}
