@@ -64,7 +64,7 @@
             <tbody>
                 {% for homework in homeworks %}
                 <tr>
-                    <th scope="row">{{forloop.count}}</th>
+                    <th scope="row">{{forloop.counter}}</th>
                     <td>{{homework.subject}}</td>
                     <td>{{homework.title}}</td>
                     <td>{{homework.desc}}</td>
