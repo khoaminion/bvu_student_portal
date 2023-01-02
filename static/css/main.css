@@ -47,6 +47,18 @@ a:hover {
     color: black;
 }
 
+.hvb{
+    color: #dcdcdc;
+}
+ 
+.hvb:hover{
+    color: #ffffff;
+}
+
+.bgd{
+
+    background-color:#202020;
+}
 
 
 .custom-header:hover {
@@ -70,16 +82,13 @@ a:hover {
 }
 
 
-
-
-
 .card h4 {
     margin: 40px 40px 0 40px;
     text-align: left;
 }
 
 .card h6 {
-    margin: 25px 40px 0 40px;
+    margin: 0 0 0 40px;
     text-align: left;
 }
 
@@ -203,3 +212,4 @@ footer .column a+a {
 .account-heading {
     font-size: 2.5rem;
 }
+

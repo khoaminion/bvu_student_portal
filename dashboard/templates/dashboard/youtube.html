@@ -12,35 +12,36 @@
     </form><br>
 
     {% for result in results %}
-    <a href="{{result.link}}" target="_blank">
+    <a href="{{result.link}}" id="headerVideoLink" class="hvb" target="_blank">
         <div class="card rounded mt-4">
             <div class="bg-light rounded card">
-                <div class="row">
-                    <div class="col-md-5">
-                        <img style="height: 270px;" class="img-fluid card-img-top rounded" src="{{result.thumbnail}}" alt="">
-
-                    </div>
-                    <div class="col-md-7">
-                        <h3 class="p-0 m-0">{{result.title}}</h3>
-                        <b>
-                            <u>
-                                <h5 class="p-0 m-0">{{result.channel}}</h5>
-                            </u>
-                        </b>
-                        <h6 class="p-0 m-1">{{result.description}}</h6>
-                        <b>
-                            <h6 class="ml-0 mt-3">{{reslt.duration}}</h6>
-                            <h6 class="ml-0 mt-1">{{result.views}}</h6>
-                            <h6 class="ml-0 mt-1">{{result.published}}</h6>
-                        </b>
+                <div id="headerPopup" class="mfp-hide embed-responsive rounded-top embed-responsive-21by9">
+                    <iframe class="embed-responsive-item" width="854" height="480" src="{{result.embedlink}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div> 
+                <div class="d-flex">                    
+                    <div class="col rounded-bottom bgd">
+                        <h3 class="p-0 m-0">{{result.title}}</h3>                                                             
+                        <div width="500" class="pb-3">       
+                            <u>                     
+                            <h6 class="">{{result.channel}}</h6>  
+                            </u>                         
+                            <h6 class="">{{result.description}}</h6>                       
+                            <h6 class="">{{reslt.duration}}</h6>
+                            <h6 class="">{{result.views}}</h6>
+                            <h6 class="">{{result.published}}</h6>
+                        </div>
+                        
+                       
+                        
+                        
+                        
                     </div>
                 </div>
+                
             </div>
-        </div>
+        </div>          
     </a>
     {% endfor %}
     <br>
-    
 </section>
-
 {% endblock content %}

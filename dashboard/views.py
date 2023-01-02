@@ -113,9 +113,11 @@ def youtube(request):
                 'thumbnail':i['thumbnails'][0]['url'],
                 'channel':i['channel']['name'],
                 'link':i['link'],
+                'embedlink':i['link'].replace('watch?v=','embed/'),
                 'views':i['viewCount']['short'],
                 'published':i['publishedTime'],
             }
+            print(i['link'].replace('watch?v=','embed/'))
             desc = ''
             if i['descriptionSnippet']:
                 for j in i['descriptionSnippet']:
@@ -126,6 +128,7 @@ def youtube(request):
                 'form':form,
                 'results':result_list
             }
+        
         return render(request,'dashboard/youtube.html',context)
     else:
         form = DashboardForm()
