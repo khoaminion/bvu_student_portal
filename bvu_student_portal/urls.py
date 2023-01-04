@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from dashboard import views as dash_views
 from django.contrib.auth import views as auth_views
+import settings
+import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,3 +29,5 @@ urlpatterns = [
     path('login/',auth_views.LoginView.as_view(template_name='dashboard/login.html'),name='login'),
     path('profile/',dash_views.profile,name='profile'),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
