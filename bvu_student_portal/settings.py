@@ -76,11 +76,11 @@ WSGI_APPLICATION = 'bvu_student_portal.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'bvustportaldb',
+   # 'default': {
+   #     'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': 'bvustportaldb',
                  
-    }
+    #}
 }
 
 
