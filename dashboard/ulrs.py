@@ -24,9 +24,14 @@ urlpatterns = [
     path('update_homework_profile/<int:pk>',views.update_homework_profile,name='update-homework-profile'),
     path('delete_todo_profile/<int:pk>',views.delete_todo_profile,name='delete-todo-profile'),
     path('delete_homework_profile/<int:pk>',views.delete_homework_profile,name='delete-homework-profile'),
-    path('reset_password/', auth_view.PasswordResetView.as_view(), name='password_reset'),
-    path('reset_password_sent/',auth_view.PasswordResetDoneView.as_view(), name='password_reset_done'),
-    path('reset/<uidb64>/<token>/', auth_view.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
-    path('reset_password_complete/', auth_view.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+    path('reset_password/', auth_view.PasswordResetView.as_view(html_email_template_name='dashboard/password_reset_email.html',template_name='dashboard/password_reset.html'),
+     name='password_reset'),
+    path('reset_password_sent/',auth_view.PasswordResetDoneView.as_view(template_name='dashboard/reset_password_sent.html'),
+     name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_view.PasswordResetConfirmView.as_view(template_name='dashboard/password_reset_confirm.html'),
+     name='password_reset_confirm'),
+    path('reset_password_complete/', auth_view.PasswordResetCompleteView.as_view(template_name='dashboard/reset_password_done.html'), name='password_reset_complete'),
+    path('password_change/',auth_view.PasswordChangeView.as_view(template_name='dashboard/password_change.html'),name='password_change'),
+    path('password_change_done/',auth_view.PasswordChangeDoneView.as_view(template_name='dashboard/password_change_done.html'),name='password_change_done')
     
 ]
