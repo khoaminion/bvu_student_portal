@@ -78,12 +78,12 @@ WSGI_APPLICATION = 'bvu_student_portal.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
         'NAME': 'railway',
-        'USER': 'root',
-        'PASSWORD': 'Idz6KOYQOYcWfn7O4CFS',
-        'HOST': 'containers-us-west-75.railway.app',
-        'PORT': '5996',
+        'USER': 'postgres',
+        'PASSWORD': 'mqmUPbP7Td3mRi8pXvjT',
+        'HOST': 'containers-us-west-91.railway.app',
+        'PORT': '5997',
     }
 }
 
