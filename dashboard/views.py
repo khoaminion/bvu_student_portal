@@ -6,11 +6,13 @@ from youtubesearchpython import VideosSearch
 import requests
 import wikipedia
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def home(request):
     return render(request,'dashboard/home.html')
 
+@csrf_exempt
 @login_required
 def notes(request):
     if request.method == 'POST':
@@ -34,6 +36,7 @@ def delete_note(request,pk=None):
 class NoteDetailView(generic.DetailView):
     model = Notes
 
+csrf_exempt
 @login_required
 def homework(request):
     if request.method == 'POST':
@@ -98,7 +101,7 @@ def delete_homework_profile(request,pk=None):
     Homework.objects.get(id=pk).delete()
     return HttpResponseRedirect('/profile')
 
-
+csrf_exempt
 def youtube(request):
     if request.method == 'POST':
         form = DashboardForm(request.POST)
@@ -135,6 +138,8 @@ def youtube(request):
     context = {'form':form}
     return render(request,'dashboard/youtube.html',context)
 
+
+csrf_exempt
 @login_required
 def todo(request):
     if request.method == 'POST':
@@ -200,6 +205,7 @@ def delete_todo_profile(request,pk=None):
     Todo.objects.get(id=pk).delete()
     return HttpResponseRedirect('/profile')
 
+csrf_exempt
 def books(request):
     if request.method == 'POST':
         form = DashboardForm(request.POST)
@@ -230,6 +236,7 @@ def books(request):
     context = {'form':form}
     return render(request,'dashboard/books.html',context)
 
+csrf_exempt
 def dictionary(request):
     if request.method == 'POST':
         form = DashboardForm(request.POST)
@@ -264,6 +271,7 @@ def dictionary(request):
         context = {'form':form}
     return render(request, 'dashboard/dictionary.html', context)
 
+csrf_exempt
 def wiki(request):
     if request.method == 'POST':
         text = request.POST['text']
@@ -284,6 +292,7 @@ def wiki(request):
         }
     return render(request,'dashboard/wiki.html',context)
 
+csrf_exempt
 def conversion(request):
     if request.method =='POST':
         form = ConversionForm(request.POST)
@@ -394,6 +403,7 @@ def conversion(request):
         }
     return render(request,'dashboard/conversion.html',context)
 
+csrf_exempt
 def register(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
@@ -430,6 +440,7 @@ def profile(request):
 
     return render (request,'dashboard/profile.html',context)
 
+csrf_exempt
 def news(request):
         form = DashboardForm(request.POST)
         query_params = {
