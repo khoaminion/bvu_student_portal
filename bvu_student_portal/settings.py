@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-z7@t**+8db8udjyvr4-s47_6a(&-!%=rxsmyzz%gd=b3jj4(m!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['104.196.232.237','bvustudentportal-production.up.railway.app','localhost', '127.0.0.1']
 STATIC_URL = True
 # Application definition
@@ -127,13 +127,7 @@ USE_TZ = True
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
-
-if DEBUG:
-        STATICFILES_DIRS = [
-            os.path.join(BASE_DIR, 'static')
-       ]
-else:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
