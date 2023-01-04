@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-z7@t**+8db8udjyvr4-s47_6a(&-!%=rxsmyzz%gd=b3jj4(m!
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['bvustudentportal-production.up.railway.app']
+ALLOWED_HOSTS = ['104.196.232.237','bvustudentportal-production.up.railway.app','localhost', '127.0.0.1']
 
 # Application definition
 
