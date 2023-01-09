@@ -6,11 +6,9 @@ class Notes(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField('Tiêu đề',max_length=200)
     desc = models.TextField('Chi tiết ghi chú')
-
     class Meta:
         verbose_name = 'notes'
         verbose_name_plural = 'notes'
-
     def __str__(self):
         return self.title
 
