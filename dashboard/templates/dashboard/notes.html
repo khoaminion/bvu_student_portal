@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         {% for note in notes %}
-        <div class="col-md-3">
+        <div class="col-md-3 pt-4">
             <a href="{% url 'note-detail' note.id %}">
                 <div class="card">
                     <div class="card-header">{{note.title}}</div>
@@ -19,7 +19,6 @@
         </div>
         {% endfor %}
         <br><br>
-        
     </div>
 </div>
 <br><br>
